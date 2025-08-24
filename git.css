@@ -158,7 +158,7 @@ h1 {
   font-weight: 800;
   text-shadow: 0 2px 12px #0003;
 }
-@media (max-width: 900px) {
+
 .container {
   max-width: 800px;
   width: 98vw;
@@ -172,7 +172,7 @@ h1 {
   box-shadow: 0 8px 40px 0 rgba(0,0,0,0.18);
   backdrop-filter: blur(6px);
 }
-}
+
 .section {
   margin-bottom: 44px;
   width: 100%;
