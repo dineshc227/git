@@ -1,13 +1,3 @@
-// Hamburger menu toggle
-const hamburger = document.getElementById("hamburger");
-const navLinks = document.getElementById("navLinks");
-
-if (hamburger && navLinks) {
-  hamburger.addEventListener("click", () => {
-    navLinks.style.transform = navLinks.style.transform === "translateX(0%)" ? "translateX(-100%)" : "translateX(0%)";
-  });
-}
-
 // Smooth scrolling for anchor links
 document.querySelectorAll('a[href^="#"]').forEach(link => {
   link.addEventListener('click', function (e) {
@@ -15,8 +5,6 @@ document.querySelectorAll('a[href^="#"]').forEach(link => {
     if (target) {
       e.preventDefault();
       target.scrollIntoView({ behavior: 'smooth' });
-      // Close nav on mobile after click
-      if (navLinks) navLinks.style.transform = "translateX(-100%)";
     }
   });
 });
