@@ -1,138 +1,303 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Git Commands Cheat Sheet</title>
-  <link rel="stylesheet" href="git.css"/>
+  <link rel="stylesheet" href="git.css" />
 </head>
+
 <body>
+  <!-- Scroll to top button -->
+  <button id="scrollTopBtn"
+    style="display:none;position:fixed;bottom:40px;right:40px;z-index:101;font-size:1.5rem;padding:10px 18px;border-radius:50%;background:#ff5f6d;color:#fff;border:none;box-shadow:0 2px 8px #0003;cursor:pointer;">
+    ↑
+  </button>
+  <nav class="nav-links" id="navLinks">
+    <a href="#commit" class="nav-item">Commit</a>
+    <a href="#branch" class="nav-item">Branch</a>
+    <a href="#checkout" class="nav-item">Checkout</a>
+    <a href="#clone" class="nav-item">Clone</a>
+    <a href="#config" class="nav-item">Config</a>
+    <a href="#merge" class="nav-item">Merge</a>
+    <a href="#pull" class="nav-item">Pull</a>
+    <a href="#push" class="nav-item">Push</a>
+    <a href="#rebase" class="nav-item">Rebase</a>
+    <a href="#stash" class="nav-item">Stash</a>
+  </nav>
+  <header>
+    <br>
+    <h1>🚀 Git Commands Cheat Sheet</h1>
+    <p>Quick Reference for Commonly Used Git Commands</p>
+    <div class="profile">
+      <h3>My Portfolio👇</h3>
+      <a href="https://dineshc227.github.io/Dinesh/" target="_blank">Dinesh Chowdary</a>
+    </div>
+  </header>
 
+  <div class="container">
+    <section id="commit" class="section">
+      <h2>📝 Git Commit Commands</h2>
+      <div class="command"><code>git init</code>
+        <p>Creates a new Git repository.</p>
+        <span class="definition">Initializes a new Git repository in the current directory.</span>
+        <span>Example: <code>git init</code> in a project folder to start version control.</span>
+      </div>
+      <div class="command"><code>git status</code>
+        <p>Show file status.</p>
+        <span class="definition">Displays the current state of the working directory and staging area.</span>
+        <span>Example: <code>git status</code> shows modified files like <code>index.html</code>.</span>
+      </div>
+      <div class="command"><code>git add file</code>
+        <p>Stage file changes.</p>
+        <span class="definition">Adds specified file changes to the staging area for the next commit.</span>
+        <span>Example: <code>git add index.html</code> stages <code>index.html</code> for commit.</span>
+      </div>
+      <div class="command"><code>git commit -m "message"</code>
+        <p>Commit with message.</p>
+        <span class="definition">Records staged changes to the repository with a descriptive message.</span>
+        <span>Example: <code>git commit -m "Add homepage layout"</code> commits changes.</span>
+      </div>
+      <div class="command"><code>git commit -a</code>
+        <p>Commit all changes.</p>
+        <span class="definition">Stages and commits all modified tracked files in one step.</span>
+        <span>Example: <code>git commit -a -m "Update all files"</code> commits all modified files.</span>
+      </div>
+      <div class="command"><code>git commit --amend</code>
+        <p>Amend last commit.</p>
+        <span class="definition">Modifies the most recent commit with new changes or message.</span>
+        <span>Example: <code>git commit --amend -m "Fix typo in commit message"</code> updates the last commit.</span>
+      </div>
+    </section>
 
-<!-- Scroll to top button -->
-<button id="scrollTopBtn"
-        style="display:none;position:fixed;bottom:40px;right:40px;z-index:101;font-size:1.5rem;padding:10px 18px;border-radius:50%;background:#ff5f6d;color:#fff;border:none;box-shadow:0 2px 8px #0003;cursor:pointer;">
-  ↑
-</button>
-<nav class="nav-links" id="navLinks">
-  <a href="#commit" class="nav-item">Commit</a>
-  <a href="#branch" class="nav-item">Branch</a>
-  <a href="#checkout" class="nav-item">Checkout</a>
-  <a href="#clone" class="nav-item">Clone</a>
-  <a href="#config" class="nav-item">Config</a>
-  <a href="#merge" class="nav-item">Merge</a>
-  <a href="#pull" class="nav-item">Pull</a>
-  <a href="#push" class="nav-item">Push</a>
-  <a href="#rebase" class="nav-item">Rebase</a>
-  <a href="#stash" class="nav-item">Stash</a>
-</nav>
-<header>
- 
-  <br>
-  <h1>🚀 Git Commands Cheat Sheet</h1>
-  <p>Quick Reference for Commonly Used Git Commands</p>
-   <div class="profile">
-    <h3>My Portfolio👇</h3>
-   
-   <a href="https://dineshc227.github.io/Dinesh/" target="_blank">Dinesh Chowdary</a>
+    <section id="branch" class="section">
+      <h2>📌 Git Branch Commands</h2>
+      <div class="command"><code>git branch</code>
+        <p>Display a list of the local branches.</p>
+        <span class="definition">Lists all local branches in the repository.</span>
+        <span>Example: <code>git branch</code> lists branches like <code>main</code>, <code>feature-x</code>.</span>
+      </div>
+      <div class="command"><code>git branch -a</code>
+        <p>List both local and remote branches.</p>
+        <span class="definition">Shows all branches, including local and remote-tracking branches.</span>
+        <span>Example: <code>git branch -a</code> shows <code>remotes/origin/main</code>.</span>
+      </div>
+      <div class="command"><code>git branch -c old new</code>
+        <p>Copy a Git branch.</p>
+        <span class="definition">Creates a new branch by copying an existing one.</span>
+        <span>Example: <code>git branch -c main feature-copy</code> creates <code>feature-copy</code> from <code>main</code>.</span>
+      </div>
+      <div class="command"><code>git branch -d branch-name</code>
+        <p>Delete a local branch (safe, requires merge).</p>
+        <span class="definition">Safely deletes a local branch if it has been merged.</span>
+        <span>Example: <code>git branch -d feature-x</code> deletes merged <code>feature-x</code>.</span>
+      </div>
+      <div class="command"><code>git branch -D branch-name</code>
+        <p>Force delete a branch (ignores merge state).</p>
+        <span class="definition">Forcefully deletes a local branch, even if unmerged.</span>
+        <span>Example: <code>git branch -D feature-x</code> deletes <code>feature-x</code> regardless of merge.</span>
+      </div>
+      <div class="command"><code>git branch -m old-name new-name</code>
+        <p>Rename a branch.</p>
+        <span class="definition">Renames a local branch to a new name.</span>
+        <span>Example: <code>git branch -m dev development</code> renames <code>dev</code> to <code>development</code>.</span>
+      </div>
+      <div class="command"><code>git branch -r</code>
+        <p>List only remote branches.</p>
+        <span class="definition">Lists all remote-tracking branches in the repository.</span>
+        <span>Example: <code>git branch -r</code> lists <code>origin/main</code>, <code>origin/dev</code>.</span>
+      </div>
+      <div class="command"><code>git push &lt;remote&gt; --delete &lt;branch&gt;</code>
+        <p>Delete a remote branch.</p>
+        <span class="definition">Removes a branch from the remote repository.</span>
+        <span>Example: <code>git push origin --delete feature-x</code> deletes <code>feature-x</code> on remote.</span>
+      </div>
+      <div class="command"><code>git push --set-upstream origin branch</code>
+        <p>Set upstream branch for pushing/pulling.</p>
+        <span class="definition">Links a local branch to a remote branch for tracking.</span>
+        <span>Example: <code>git push --set-upstream origin feature-x</code> links local branch to remote.</span>
+      </div>
+    </section>
+
+    <section id="checkout" class="section">
+      <h2>🔀 Git Checkout Commands</h2>
+      <div class="command"><code>git checkout branch</code>
+        <p>Switch to a branch.</p>
+        <span class="definition">Switches the working directory to the specified branch.</span>
+        <span>Example: <code>git checkout dev</code> switches to <code>dev</code> branch.</span>
+      </div>
+      <div class="command"><code>git checkout -b new-branch</code>
+        <p>Create and switch to a new branch.</p>
+        <span class="definition">Creates a new branch and switches to it immediately.</span>
+        <span>Example: <code>git checkout -b feature-x</code> creates and switches to <code>feature-x</code>.</span>
+      </div>
+      <div class="command"><code>git checkout commit-hash</code>
+        <p>Checkout previous commit (detached HEAD).</p>
+        <span class="definition">Checks out a specific commit, entering a detached HEAD state.</span>
+        <span>Example: <code>git checkout 1a2b3c4</code> views commit with hash <code>1a2b3c4</code>.</span>
+      </div>
+      <div class="command"><code>git checkout tag-name</code>
+        <p>Checkout a tag in a detached HEAD state.</p>
+        <span class="definition">Switches to a specific tag, entering a detached HEAD state.</span>
+        <span>Example: <code>git checkout v1.0</code> views tag <code>v1.0</code>.</span>
+      </div>
+    </section>
+
+    <section id="clone" class="section">
+      <h2>📂 Git Clone Commands</h2>
+      <div class="command"><code>git clone repo-url</code>
+        <p>Clone a repository.</p>
+        <span class="definition">Copies a remote repository to the local machine.</span>
+        <span>Example: <code>git clone https://github.com/user/repo.git</code> clones <code>repo</code>.</span>
+      </div>
+      <div class="command"><code>git clone repo-url dir-name</code>
+        <p>Clone into custom folder.</p>
+        <span class="definition">Clones a repository into a specified directory.</span>
+        <span>Example: <code>git clone https://github.com/user/repo.git my-project</code> clones into <code>my-project</code>.</span>
+      </div>
+      <div class="command"><code>git clone repo-url --origin custom</code>
+        <p>Clone with custom remote name.</p>
+        <span class="definition">Clones a repository and sets a custom name for the remote.</span>
+        <span>Example: <code>git clone https://github.com/user/repo.git --origin upstream</code> sets remote as <code>upstream</code>.</span>
+      </div>
+      <div class="command"><code>git clone repo-url --branch branch</code>
+        <p>Clone and checkout specific branch.</p>
+        <span class="definition">Clones a repository and checks out a specific branch.</span>
+        <span>Example: <code>git clone https://github.com/user/repo.git --branch dev</code> clones <code>dev</code> branch.</span>
+      </div>
+      <div class="command"><code>git clone repo-url --depth 1</code>
+        <p>Shallow clone with limited commits.</p>
+        <span class="definition">Clones a repository with only the latest commit history.</span>
+        <span>Example: <code>git clone https://github.com/user/repo.git --depth 1</code> clones latest commit only.</span>
+      </div>
+    </section>
+
+    <section id="config" class="section">
+      <h2>⚙️ Git Config Commands</h2>
+      <div class="command"><code>git config --global user.name "Name"</code>
+        <p>Set global username.</p>
+        <span class="definition">Sets the username for all repositories globally.</span>
+        <span>Example: <code>git config --global user.name "Dinesh Chowdary"</code> sets username.</span>
+      </div>
+      <div class="command"><code>git config --global user.email "Email"</code>
+        <p>Set global email.</p>
+        <span class="definition">Sets the email address for all repositories globally.</span>
+        <span>Example: <code>git config --global user.email "Dinesh@example.com"</code> sets email.</span>
+      </div>
+      <div class="command"><code>git config --list</code>
+        <p>Show config list.</p>
+        <span class="definition">Displays all current Git configuration settings.</span>
+        <span>Example: <code>git config --list</code> displays settings like <code>user.name=Dinesh Chowdary</code>.</span>
+      </div>
+    </section>
+
+    <section id="merge" class="section">
+      <h2>🔗 Git Merge Commands</h2>
+      <div class="command"><code>git merge branch</code>
+        <p>Merge branch into current.</p>
+        <span class="definition">Integrates changes from a specified branch into the current branch.</span>
+        <span>Example: <code>git merge feature-x</code> merges <code>feature-x</code> into <code>main</code>.</span>
+      </div>
+      <div class="command"><code>git merge --abort</code>
+        <p>Abort merge.</p>
+        <span class="definition">Cancels a merge operation and restores the pre-merge state.</span>
+        <span>Example: <code>git merge --abort</code> cancels a conflicting merge.</span>
+      </div>
+      <div class="command"><code>git merge --squash</code>
+        <p>Squash commits into one.</p>
+        <span class="definition">Combines a branch's commits into a single commit during merge.</span>
+        <span>Example: <code>git merge --squash feature-x</code> combines <code>feature-x</code> commits into one.</span>
+      </div>
+    </section>
+
+    <section id="pull" class="section">
+      <h2>⬇️ Git Pull Commands</h2>
+      <div class="command"><code>git pull</code>
+        <p>Fetch + merge from remote.</p>
+        <span class="definition">Downloads and integrates changes from a remote repository.</span>
+        <span>Example: <code>git pull</code> updates <code>main</code> with remote changes.</span>
+      </div>
+      <div class="command"><code>git pull --squash</code>
+        <p>Pull and squash commits.</p>
+        <span class="definition">Fetches remote changes and combines them into a single commit.</span>
+        <span>Example: <code>git pull --squash</code> combines fetched commits into one.</span>
+      </div>
+      <div class="command"><code>git pull --no-ff</code>
+        <p>Force merge commit.</p>
+        <span class="definition">Fetches and merges remote changes, ensuring a merge commit.</span>
+        <span>Example: <code>git pull --no-ff</code> creates a merge commit for pulled changes.</span>
+      </div>
+    </section>
+
+    <section id="push" class="section">
+      <h2>⬆️ Git Push Commands</h2>
+      <div class="command"><code>git push</code>
+        <p>Push changes to remote.</p>
+        <span class="definition">Uploads local branch commits to the remote repository.</span>
+        <span>Example: <code>git push</code> sends local <code>main</code> to remote.</span>
+      </div>
+      <div class="command"><code>git push remote branch</code>
+        <p>Push specific branch.</p>
+        <span class="definition">Pushes a specified local branch to a remote repository.</span>
+        <span>Example: <code>git push origin feature-x</code> pushes <code>feature-x</code> to remote.</span>
+      </div>
+      <div class="command"><code>git push --force</code>
+        <p>To forcefully overwrite the history of a remote Git branch with the local branch's history.</p>
+        <span class="definition">Overwrites the remote branch with local branch history.</span>
+        <span>Example: <code>git push --force</code> overwrites remote <code>feature-x</code>.</span>
+      </div>
+      <div class="command"><code>git push --tags</code>
+        <p>Push all tags.</p>
+        <span class="definition">Uploads all local tags to the remote repository.</span>
+        <span>Example: <code>git push --tags</code> sends tags like <code>v1.0</code> to remote.</span>
+      </div>
+    </section>
+
+    <section id="rebase" class="section">
+      <h2>📌 Git Rebase Commands</h2>
+      <div class="command"><code>git rebase branch</code>
+        <p>Rebase onto branch.</p>
+        <span class="definition">Reapplies commits from the current branch onto another branch.</span>
+        <span>Example: <code>git rebase main</code> rebases current branch onto <code>main</code>.</span>
+      </div>
+      <div class="command"><code>git rebase -i branch</code>
+        <p>Interactive rebase.</p>
+        <span class="definition">Allows interactive editing of commits during rebase.</span>
+        <span>Example: <code>git rebase -i main</code> allows editing commits on current branch.</span>
+      </div>
+      <div class="command"><code>git rebase --abort</code>
+        <p>Abort rebase.</p>
+        <span class="definition">Cancels a rebase operation and restores the original state.</span>
+        <span>Example: <code>git rebase --abort</code> cancels a conflicting rebase.</span>
+      </div>
+    </section>
   </div>
-</header>
 
-
-
-<div class="container">
-  <section id="commit" class="section">
-    <h2>📝 Git Commit Commands</h2>
-    <div class="command"><code>git init</code><p>Creates a new Git repository.</p></div>
-    <div class="command"><code>git status</code><p>Show file status.</p></div>
-    <div class="command"><code>git add file</code><p>Stage file changes.</p></div>
-    <div class="command"><code>git commit -m "message"</code><p>Commit with message.</p></div>
-    <div class="command"><code>git commit -a</code><p>Commit all changes.</p></div>
-    <div class="command"><code>git commit --amend</code><p>Amend last commit.</p></div>
-  </section>
-
-  <section id="branch" class="section">
-    <h2>📌 Git Branch Commands</h2>
-    <div class="command"><code>git branch</code><p>Display a list of the local branches.</p></div>
-    <div class="command"><code>git branch -a</code><p>List both local and remote branches.</p></div>
-    <div class="command"><code>git branch -c old new</code><p>Copy a Git branch.</p></div>
-    <div class="command"><code>git branch -d branch-name</code><p>Delete a local branch (safe, requires merge).</p></div>
-    <div class="command"><code>git branch -D branch-name</code><p>Force delete a branch (ignores merge state).</p></div>
-    <div class="command"><code>git branch -m old-name new-name</code><p>Rename a branch.</p></div>
-    <div class="command"><code>git branch -r</code><p>List only remote branches.</p></div>
-    <div class="command"><code>git push &lt;remote&gt; --delete &lt;branch&gt;</code><p>Delete a remote branch.</p></div>
-    <div class="command"><code>git push --set-upstream origin branch</code><p>Set upstream branch for pushing/pulling.</p></div>
-  </section>
-
-  <section id="checkout" class="section">
-    <h2>🔀 Git Checkout Commands</h2>
-    <div class="command"><code>git checkout branch</code><p>Switch to a branch.</p></div>
-    <div class="command"><code>git checkout -b new-branch</code><p>Create and switch to a new branch.</p></div>
-    <div class="command"><code>git checkout commit-hash</code><p>Checkout previous commit (detached HEAD).</p></div>
-    <div class="command"><code>git checkout tag-name</code><p>Checkout a tag in a detached HEAD state.</p></div>
-  </section>
-
-  <section id="clone" class="section">
-    <h2>📂 Git Clone Commands</h2>
-    <div class="command"><code>git clone repo-url</code><p>Clone a repository.</p></div>
-    <div class="command"><code>git clone repo-url dir-name</code><p>Clone into custom folder.</p></div>
-    <div class="command"><code>git clone repo-url --origin custom</code><p>Clone with custom remote name.</p></div>
-    <div class="command"><code>git clone repo-url --branch branch</code><p>Clone and checkout specific branch.</p></div>
-    <div class="command"><code>git clone repo-url --depth 1</code><p>Shallow clone with limited commits.</p></div>
-  </section>
-
-  <section id="config" class="section">
-    <h2>⚙️ Git Config Commands</h2>
-    <div class="command"><code>git config --global user.name "Name"</code><p>Set global username.</p></div>
-    <div class="command"><code>git config --global user.email "Email"</code><p>Set global email.</p></div>
-    <div class="command"><code>git config --list</code><p>Show config list.</p></div>
-  </section>
-
-  <section id="merge" class="section">
-    <h2>🔗 Git Merge Commands</h2>
-    <div class="command"><code>git merge branch</code><p>Merge branch into current.</p></div>
-    <div class="command"><code>git merge --abort</code><p>Abort merge.</p></div>
-    <div class="command"><code>git merge --squash</code><p>Squash commits into one.</p></div>
-  </section>
-
-  <section id="pull" class="section">
-    <h2>⬇️ Git Pull Commands</h2>
-    <div class="command"><code>git pull</code><p>Fetch + merge from remote.</p></div>
-    <div class="command"><code>git pull --squash</code><p>Pull and squash commits.</p></div>
-    <div class="command"><code>git pull --no-ff</code><p>Force merge commit.</p></div>
-  </section>
-
-  <section id="push" class="section">
-    <h2>⬆️ Git Push Commands</h2>
-    <div class="command"><code>git push</code><p>Push changes to remote.</p></div>
-    <div class="command"><code>git push remote branch</code><p>Push specific branch.</p></div>
-    <div class="command"><code>git push --force</code><p>To forcefully overwrite the history of a remote Git branch with the local branch's history.</p></div>
-    <div class="command"><code>git push --tags</code><p>Push all tags.</p></div>
-  </section>
-
-  <section id="rebase" class="section">
-    <h2>📌 Git Rebase Commands</h2>
-    <div class="command"><code>git rebase branch</code><p>Rebase onto branch.</p></div>
-    <div class="command"><code>git rebase -i branch</code><p>Interactive rebase.</p></div>
-    <div class="command"><code>git rebase --abort</code><p>Abort rebase.</p></div>
-  </section>
-
-  <section id="stash" class="section">
-    <h2>📦 Git Stash Commands</h2>
-    <div class="command"><code>git stash</code><p>Stash changes.</p></div>
-    <div class="command"><code>git stash list</code><p>List all stashes.</p></div>
-    <div class="command"><code>git stash pop</code><p>Apply and remove stash.</p></div>
-    <div class="command"><code>git stash apply</code><p>Apply stash (keep in list).</p></div>
-    <div class="command"><code>git stash clear</code><p>Clear all stashes.</p></div>
-  </section>
-</div>
-
-<footer>
-  <div class="profile-bottom">
-    <a href="https://dineshc227.github.io/Dinesh/" target="_blank">Dinesh Chowdary</a>
-  </div>
-  <p>🔧 Git Cheat Sheet | Made with ❤️ for Developers</p>
+  <footer>
+    <div class="profile-bottom">
+      <a href="https://dineshc227.github.io/Dinesh/" target="_blank">Dinesh Chowdary</a>
+    </div>
+    <div class="support-section">
+      <h2>🙏 Support</h2>
+      <p align="center">
+        <a href='https://ko-fi.com/dinesh28' target='_blank'><img height='27' width="100"
+            src='https://cdn.ko-fi.com/cdn/kofi3.png?v=2' alt='Buy Coffee for Dinesh' /></a>
+        <a href="https://buymeacoffee.com/dk7774496g" target="_blank"><img
+            src="https://cdn.buymeacoffee.com/buttons/default-orange.png" alt="Buy Me A Coffee" height="23" width="100"
+            style="border-radius:2px" /></a>
+        <a href="https://payviaupi.com/dinesh" target="_blank"><img
+            src="https://indiadesignsystem.bombaydc.com/assets/india-designs/display/UPI/black.svg" alt="Pay via UPI"
+            height="23" width="100" style="border-radius:2px; background-color: white;" /></a>
+      </p>
+      <hr>
+      <p align="center">
+        Developed with ❤️ in India 🇮🇳
+      </p>
+    </div>
+    <p>🔧 Git Cheat Sheet | Made with ❤️ for Developers</p>
   </footer>
-<script src="git.js"></script>
+  <script src="git.js"></script>
 </body>
+
 </html>
